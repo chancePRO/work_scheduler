@@ -34,6 +34,10 @@ HTML_SELECT_FORM = """
     {% endfor %}
   </select>
   <br><br>
+  <input type=submit value="Generate ICS">
+</form>
+"""
+
 HTML_FORM = """
 <!doctype html>
 <title>Upload Schedule</title>
