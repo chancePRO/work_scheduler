@@ -34,14 +34,12 @@ HTML_SELECT_FORM = """
     {% endfor %}
   </select>
   <br><br>
-=======
 HTML_FORM = """
 <!doctype html>
 <title>Upload Schedule</title>
 <h1>Upload Your Schedule PDF</h1>
 <form method=post enctype=multipart/form-data>
   <input type=file name=file>
->>>>>>> 8d59b37ac66797b122c59a28874cf594dfc341a6
   <input type=submit value="Generate ICS">
 </form>
 """
