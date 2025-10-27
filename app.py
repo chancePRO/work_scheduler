@@ -12,7 +12,6 @@ import io
 
 app = Flask(__name__)
 
-<<<<<<< HEAD
 # Global storage for parsed schedules
 parsed_schedules = {}
 
@@ -52,12 +51,9 @@ HTML_FORM = """
 
 @app.route("/", methods=["GET", "POST"])
 def upload_file():
-<<<<<<< HEAD
     global parsed_schedules
     if request.method == "POST" and "file" in request.files:
-=======
     if request.method == "POST":
->>>>>>> 8d59b37ac66797b122c59a28874cf594dfc341a6
         file = request.files["file"]
 
         # Extract text from PDF
@@ -66,7 +62,6 @@ def upload_file():
             for page in pdf.pages:
                 text += page.extract_text() + "\n"
 
-<<<<<<< HEAD
         # Extract dates from header
         date_line = re.search(r'Associates.*', text)
         if not date_line:
@@ -105,7 +100,6 @@ def upload_file():
         # Create ICS file
         tz = pytz.timezone("America/Chicago")
         calendar = Calendar()
-=======
         # Step 1: Extract the date range from the header
         date_line = re.search(r'Associates.*', text)
         if not date_line:
@@ -145,7 +139,6 @@ def upload_file():
         tz = pytz.timezone("America/Chicago")
         calendar = Calendar()
 
->>>>>>> 8d59b37ac66797b122c59a28874cf594dfc341a6
         for date_obj, shift in schedule:
             start_str, end_str = shift.split(" - ")
             start_time = datetime.strptime(start_str, "%I:%M %p").time()
@@ -169,18 +162,15 @@ def upload_file():
         return send_file(io.BytesIO(ics_file.getvalue().encode()),
                          mimetype="text/calendar",
                          as_attachment=True,
-<<<<<<< HEAD
                          download_name=f"{lastname}_schedule.ics")
 
     return render_template_string(HTML_UPLOAD_FORM)
 
 if __name__ == "__main__":
     app.run(debug=True)
-=======
                          download_name="work_schedule.ics")
 
     return render_template_string(HTML_FORM)
 
 if __name__ == "__main__":
     app.run(debug=True)
->>>>>>> 8d59b37ac66797b122c59a28874cf594dfc341a6
