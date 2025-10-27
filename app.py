@@ -1,11 +1,8 @@
 from flask import Flask, request, send_file, render_template_string
 import pdfplumber
 import re
-<<<<<<< HEAD
 from datetime import datetime
-=======
 from datetime import datetime, timedelta
->>>>>>> 8d59b37ac66797b122c59a28874cf594dfc341a6
 from ics import Calendar, Event
 import pytz
 import io
